@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.json());
 app.use(cors(
     {
-        origin: ["https://deploy-auth-frontend.vercel.app/"],
+        origin: ["https://deploy-auth-frontend.vercel.app"],
         methods:["POST", "GET"],
         credentials: true
     }
