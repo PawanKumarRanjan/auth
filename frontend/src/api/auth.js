@@ -7,5 +7,10 @@ export const signup = async (data) => {
 };
 
 export const login = async (data) => {
-    return await axios.post(`${API_URL}/auth/login`, data);
+     try {
+        const response = await axios.post(`${API_URL}/auth/login`, data);
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
 };
