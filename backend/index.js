@@ -4,17 +4,18 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const AuthRouter = require('./Routes/authRouter');
 const DashboardRouter = require('./Routes/dashboardRouter')
-
 require('dotenv').config()
 require('./Models/db');
 const PORT = process.env.PORT || 8080;
 
-app.use(bodyParser.json());
 const corsOptions = {
     origin: 'https://deploy-auth-frontend.vercel.app',
-    optionsSuccessStatus: 200
+    optionsSuccessStatus: 200,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    allowedHeaders: 'Content-Type,Authorization'
 };
 
+app.use(bodyParser.json());
 app.use(cors(corsOptions));
 app.use('/auth', AuthRouter);
 app.use('/dashboard', DashboardRouter);
