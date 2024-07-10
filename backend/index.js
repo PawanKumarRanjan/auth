@@ -8,14 +8,11 @@ require('dotenv').config()
 require('./Models/db');
 const PORT = process.env.PORT || 8080;
 
-const corsOptions = {
-    origin: 'https://deploy-auth-frontend.vercel.app',
-    optionsSuccessStatus: 200,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    allowedHeaders: 'Content-Type,Authorization'
-};
-
-app.use(cors(corsOptions));
+app.use(cors({
+  origin: 'https://deploy-auth-frontend.vercel.app',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+}));
 app.use(bodyParser.json());
 app.use('/auth', AuthRouter);
 app.use('/dashboard', DashboardRouter);
