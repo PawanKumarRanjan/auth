@@ -15,8 +15,8 @@ const corsOptions = {
     allowedHeaders: 'Content-Type,Authorization'
 };
 
-app.use(bodyParser.json());
 app.use(cors(corsOptions));
+app.use(bodyParser.json());
 app.use('/auth', AuthRouter);
 app.use('/dashboard', DashboardRouter);
 
