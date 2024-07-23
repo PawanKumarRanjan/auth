@@ -4,12 +4,13 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const AuthRouter = require('./Routes/authRouter');
 const DashboardRouter = require('./Routes/dashboardRouter')
+
 require('dotenv').config()
 require('./Models/db');
 const PORT = process.env.PORT || 8080;
 
-app.use(cors())
 app.use(bodyParser.json());
+app.use(cors());
 app.use('/auth', AuthRouter);
 app.use('/dashboard', DashboardRouter);
 
