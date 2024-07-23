@@ -3,6 +3,9 @@ const { signup, login } = require('../Controllers/authController');
 
 const router = require('express').Router();
 
+router.get('/', (req, res) =>{
+  res.send("hello");
+});
 router.post('/login', loginValidation, login);
 router.post('/signup', signupValidation, signup);
 
