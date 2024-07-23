@@ -8,6 +8,8 @@ require('dotenv').config()
 require('./Models/db');
 const PORT = process.env.PORT || 8080;
 
+app.options('*', cors()) // include before other routes
+
 app.use(cors({
   origin: '*',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
