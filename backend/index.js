@@ -12,7 +12,6 @@ app.options('*', cors()) // include before other routes
 
 app.use(cors({
   origin: '*',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 }));
 app.use(bodyParser.json());
