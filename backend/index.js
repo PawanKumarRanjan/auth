@@ -8,12 +8,7 @@ require('dotenv').config()
 require('./Models/db');
 const PORT = process.env.PORT || 8080;
 
-app.options('*', cors()) // include before other routes
-
-app.use(cors({
-  origin: '*',
-  credentials: true,
-}));
+app.use(cors())
 app.use(bodyParser.json());
 app.use('/auth', AuthRouter);
 app.use('/dashboard', DashboardRouter);
